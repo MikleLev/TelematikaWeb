@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TelematikaWEB.Models.Cartridge>
+@{
+    ViewData["Title"] = "Issuance";
+}
+<h1>Снятие средств</h1>
+
+<form method="post">
+        <label>Введите сумму в рублях:</label><br />
+        <input type="text" name="money" /><br /><br />
+        <input type="submit" value="Снять" /> 
+</form>
+
+<h1>Активные картриджи</h1>
+<form method="post">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.count)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.count)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</form>
